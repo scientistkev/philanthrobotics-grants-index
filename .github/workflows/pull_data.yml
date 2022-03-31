@@ -11,11 +11,11 @@ on:
 
 env:
   # edit these:
-  INPUT_CREDS: #airtable API key, begins with 'key'
-  BASE_ID: #id of airtable base, begins with 'app'
-  TABLE_ID: #id of airtable table, begins with 'tbl'
-  TABLE_NAME: #whatever you want your CSV file to be called
-  remote: # change this to your repo
+  INPUT_CREDS: ${{ secrets.AIRTABLE_API_KEY }}
+  BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+  TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
+  TABLE_NAME: 'GrantDataIndex'
+  remote: 'scientistkev/philanthrobotics-grants-index'
 
   # these guys can stay as default unless you want to change:
   ARCHIVE_DIR: "index_archive" #this is the default home for csv files
