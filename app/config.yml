@@ -16,6 +16,6 @@ include:
   - _redirects
 
 # variables
-edit_url: # edit url goes here
-displayed_fields: "terms_of_use, description, last_edit" # displayed fields go here (leave out title, location, tags -- )
+edit_url: 'https://github.com/scientistkev/philanthrobotics-grants-index' # edit url goes here
+displayed_fields: "associated_platform, point_of_contact, notes, fields_included, cost_to_access" # displayed fields go here (leave out title, location, tags -- )
 background_color: 'aliceblue'
