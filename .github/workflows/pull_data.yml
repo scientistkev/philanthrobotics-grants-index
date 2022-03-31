@@ -2,7 +2,7 @@ name: pull_data
 
 on:
   schedule:
-  - cron: "0 0 29 2 1" # this won't run till 2044, change it when you're ready
+  - cron: "* * * * *" # this won't run till 2044, change it when you're ready
 
   ## uncomment this one for debugging (will run each time you push a change)
   # push:
