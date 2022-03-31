@@ -14,7 +14,7 @@ env:
   INPUT_CREDS: ${{ secrets.AIRTABLE_API_KEY }}
   BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
   TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
-  TABLE_NAME: GrantDataIndex
+  TABLE_NAME: 'GrantDataIndex'
   remote: 'scientistkev/philanthrobotics-grants-index'
 
   # these guys can stay as default unless you want to change:
