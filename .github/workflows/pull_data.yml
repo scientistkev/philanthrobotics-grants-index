@@ -59,10 +59,10 @@ jobs:
           while IFS= read -r file
           do
             echo "$file"
-            if [[ $file == "$ARCHIVE_DIR/*.csv" ]] || [[ $file == "$ARCHIVE_DIR/" ]] || \
-             [[ $file == "$FILES_DIR/*.md" ]] ||  [[ $file == "$FILES_DIR/" ]] || \
-             [[ $file == "app/assets/thumbnails/" ]] || \
-             [[ $file == "app/assets/thumbnails/*.png" ]]; then
+            if [[ $file == $ARCHIVE_DIR/*.csv ]] || [[ $file == $ARCHIVE_DIR/ ]] || \
+             [[ $file == $FILES_DIR/*.md ]] ||  [[ $file == $FILES_DIR/ ]] || \
+             [[ $file == app/assets/thumbnails/ ]] || \
+             [[ $file == app/assets/thumbnails/*.png ]]; then
               echo "updated files"
               echo "::set-output name=commit_files::true"
             fi
