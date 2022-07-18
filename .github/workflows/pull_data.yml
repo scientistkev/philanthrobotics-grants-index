@@ -59,8 +59,8 @@ jobs:
           while IFS= read -r file
           do
             echo "$file"
-            if [[ $file == "$FILES_DIR/*.csv" ]] || [[ $file == "$FILES_DIR/" ]] || \
-             [[ $file == "$ARCHIVE_DIR/*.md" ]] ||  [[ $file == "$ARCHIVE_DIR/" ]] || \
+            if [[ $file == "$ARCHIVE_DIR/*.csv" ]] || [[ $file == "$ARCHIVE_DIR/" ]] || \
+             [[ $file == "$FILES_DIR/*.md" ]] ||  [[ $file == "$FILES_DIR/" ]] || \
              [[ $file == "app/assets/thumbnails/" ]] || \
              [[ $file == "app/assets/thumbnails/*.png" ]]; then
               echo "updated files"
