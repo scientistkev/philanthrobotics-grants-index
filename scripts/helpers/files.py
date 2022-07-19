@@ -76,38 +76,38 @@ def generate_markdown(data, directory):
 
 	new_files = []
 	for row in to_gen:
-		print("creating file for", row["title"])
-		new_files.append(row['uuid'])
-
-		#create title
-		if row['shortname'] and row['shortname'].strip():
-			filepath = os.path.join(directory + '/', row['shortname'] + '.md')
-		else:
-			shortname = row["title"].lower().replace(' ', '_') + "_" + str(random.randrange(0,50))
-			filepath = os.path.join(directory + '/', shortname + '.md')
-
-		#open and close file
-		if not os.path.exists(filepath):
-			open(filepath, 'w').close()
-
-		record = frontmatter.load(filepath)
-
-		for term in row:
-			#check not empty null or blank
-			if row[term]:
-				record[term] = row[term]
-
 		if "title" in row and row["title"].strip():
-			title = re.sub('\s+',' ',row["title"]).strip() # stop the titles breaking search
-			record["title"] = title
+			print("creating file for", row["title"])
+			new_files.append(row['uuid'])
 
-		if "related_project_shortnames" in row and row["related_project_shortnames"].strip():
-			record["relationships"] = list(map(lambda tag: tag.strip(), row["related_project_shortnames"].split(',')))
+			#create title
+			if row['shortname'] and row['shortname'].strip():
+				filepath = os.path.join(directory + '/', row['shortname'] + '.md')
+			else:
+				shortname = row["title"].lower().replace(' ', '_') + "_" + str(random.randrange(0,50))
+				filepath = os.path.join(directory + '/', shortname + '.md')
 
-		if "tags" in row and row["tags"].strip():
-			record["tags"] = list(map(lambda tag: tag.strip(), row["tags"].split(',')))
+			#open and close file
+			if not os.path.exists(filepath):
+				open(filepath, 'w').close()
 
-		update_frontmatter(record, filepath)
+			record = frontmatter.load(filepath)
+
+			for term in row:
+				#check not empty null or blank
+				if row[term]:
+					record[term] = row[term]
+
+				title = re.sub('\s+',' ',row["title"]).strip() # stop the titles breaking search
+				record["title"] = title
+
+			if "related_project_shortnames" in row and row["related_project_shortnames"].strip():
+				record["relationships"] = list(map(lambda tag: tag.strip(), row["related_project_shortnames"].split(',')))
+
+			if "tags" in row and row["tags"].strip():
+				record["tags"] = list(map(lambda tag: tag.strip(), row["tags"].split(',')))
+
+			update_frontmatter(record, filepath)
 
 	return new_files
 
